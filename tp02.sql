@@ -1,5 +1,7 @@
 DROP DATABASE IF EXISTS compta;
-CREATE DATABASE compta,
+CREATE DATABASE compta;
+
+USE compta;
 
 CREATE TABLE article (
 	id INT(6) PRIMARY KEY,
@@ -9,16 +11,16 @@ CREATE TABLE article (
     id_fou INT(6) 
 );
 
-CREATE TABLE article (
+CREATE TABLE fournisseur(
 	id INT(6) PRIMARY KEY,
     nom VARCHAR(30) NOT NULL
 );
 
-CREATE TABLE article (
+CREATE TABLE bon (
 	id INT(6) PRIMARY KEY,
     numero INT(30) NOT NULL,
     date_cmde TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-    delai TIMESTAMP,
+    delai INT(6),
     id_fou INT(6) 
 );
 
@@ -28,3 +30,5 @@ CREATE TABLE compo (
     id_art INT,
     id_bon INT 
 );
+
+ALTER TABLE article ADD CONSTRAINT FOREIGN KEY (id_fou) REFERENCES fournisseur (id);
