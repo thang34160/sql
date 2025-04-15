@@ -29,6 +29,6 @@ n.SELECT bon.date_cmde, SUM(compo.qte) FROM bon INNER JOIN compo ON bon.id = com
 o.SELECT bon.numero, SUM(compo.qte) FROM bon INNER JOIN compo ON bon.id = compo.id_bon GROUP BY bon.numero
 HAVING SUM(compo.qte) > 25;
 
-p. SELECT SUM(article.prix), date_cmde FROM article INNER JOIN compo ON article.id = compo.id_art
-INNER JOIN bon ON compo.id_bon = bon.id WHERE date_cmde BETWEEN '2019/04/01' AND '2019/04/30'
+p. SELECT SUM(article.prix * compo.qte), date_cmde FROM article INNER JOIN compo ON article.id = compo.id_art
+INNER JOIN bon ON compo.id_bon = bon.id WHERE MONTH(date_cmde) = 4
 GROUP BY date_cmde;
