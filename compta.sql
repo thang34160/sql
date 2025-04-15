@@ -27,6 +27,8 @@ SET time_zone = "+00:00";
 -- Structure de la table `article`
 --
 
+
+
 CREATE TABLE `article` (
   `id` int(11) NOT NULL,
   `ref` varchar(13) NOT NULL,
