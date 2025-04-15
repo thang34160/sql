@@ -22,7 +22,7 @@ k. SELECT * FROM bon INNER JOIN compo ON bon.id = compo.id_bon WHERE compo.id_ar
 
 l. SELECT *,fournisseur.nom FROM bon INNER JOIN fournisseur ON bon.id_fou = fournisseur.id INNER JOIN compo ON bon.id = compo.id_bon WHERE compo.id_art IN (2, 3, 4, 6);
 
-m. SELECT bon.date_cmde, SUM(article.prix) FROM bon INNER JOIN compo ON bon.id = compo.id_bon INNER JOIN article ON compo.id_art = article.id GROUP BY bon.date_cmde;
+m. SELECT bon.date_cmde, SUM(article.prix * compo.qte) FROM bon INNER JOIN compo ON bon.id = compo.id_bon INNER JOIN article ON compo.id_art = article.id GROUP BY bon.date_cmde;
 
 n.SELECT bon.date_cmde, SUM(compo.qte) FROM bon INNER JOIN compo ON bon.id = compo.id_bon GROUP BY bon.date_cmde;
 
