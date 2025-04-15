@@ -32,6 +32,7 @@ CREATE TABLE compo (
 );
 
 -- table article qui va référencer la table fournisseur
+-- ALTER TABLE table principal ADD CONSTRAINT FOREIGN KEY (id de la clé étrangère) REFERENCES table étrangère (id principale)
 ALTER TABLE article ADD CONSTRAINT FOREIGN KEY (id_fou) REFERENCES fournisseur (id);
 ALTER TABLE bon ADD CONSTRAINT FOREIGN KEY (id_fou) REFERENCES fournisseur (id);
 ALTER TABLE compo ADD CONSTRAINT FOREIGN KEY (id_art) REFERENCES article (id);
